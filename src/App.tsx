@@ -17,16 +17,16 @@ export const goodsFromServer : string[] = [
   'Garlic',
 ];
 
-type GoodsList = string[];
+type GoodsList = string[]
 const goods = goodsFromServer;
 
 export const App: React.FC = () => {
   const [sortField, setSortField] = useState<string>('');
   const [reverse, setReverse] = useState<boolean>(false);
 
-  const visibleGoods: GoodsList = getPrepareGoods(goods, sortField);
+  const visibleGoods: GoodsList = getPrepareGoods(goods, sortField ,  reverse);
 
-  function getPrepareGoods(goods: GoodsList, sortField: string) {
+  function getPrepareGoods(goods: GoodsList, sortField: string  , reverse: boolean) {
     const new_goods : GoodsList = [...goods];
     if (sortField) {
       switch (sortField) {
@@ -38,11 +38,7 @@ export const App: React.FC = () => {
           break;
       }
     }
-    if (reverse) {
-      return new_goods.reverse();
-    }
-
-    return new_goods;
+    return reverse ? new_goods.reverse() : new_goods;
   }
 
   return (
