@@ -34,7 +34,7 @@ export const App: React.FC = () => {
           new_goods.sort((good1, good2) : number => good1.localeCompare(good2));
           break;
         case sortFieldNew.sortL:
-          new_goods.sort((good1, good2) : number => good2.length - good1.length);
+          new_goods.sort((good1, good2) : number => good1.length - good2.length);
           break;
       }
     }
